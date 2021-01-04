@@ -18,7 +18,7 @@ public class PingCommand implements Command {
     @Override
     public void execute(@NotNull CommandContext context) {
         context.getChannel()
-                .sendMessage("Pong!")
+                .sendMessage("\uD83C\uDFD3 Pong!")
                 .queue();
     }
 }
