@@ -14,12 +14,11 @@ public class PyroApplication implements CommandLineRunner {
 
     private final DiscordBotService bot;
 
-    private final Logger logger;
+    private final Logger logger = Logger.getAnonymousLogger();
 
     @Autowired
-    public PyroApplication(final DiscordBotService bot, final Logger logger) {
+    public PyroApplication(final DiscordBotService bot) {
         this.bot = bot;
-        this.logger = logger;
     }
 
     public static void main(String[] args) {

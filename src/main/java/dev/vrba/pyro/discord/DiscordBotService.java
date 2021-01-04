@@ -16,12 +16,11 @@ public class DiscordBotService {
 
     private final String token;
 
-    private final Logger logger;
+    private final Logger logger = Logger.getAnonymousLogger();
 
     @Autowired
-    public DiscordBotService(@Value("$DISCORD_TOKEN") final String token, final Logger logger) {
+    public DiscordBotService(@Value("$DISCORD_TOKEN") final String token) {
         this.token = token;
-        this.logger = logger;
     }
 
     public void start() throws LoginException {
