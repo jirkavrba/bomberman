@@ -19,7 +19,7 @@ public class DiscordBotService {
     private final Logger logger = Logger.getAnonymousLogger();
 
     @Autowired
-    public DiscordBotService(@Value("$DISCORD_TOKEN") final String token) {
+    public DiscordBotService(@Value("${DISCORD_TOKEN:default}") final String token) {
         this.token = token;
     }
 
