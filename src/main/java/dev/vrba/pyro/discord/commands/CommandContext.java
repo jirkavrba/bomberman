@@ -1,5 +1,6 @@
 package dev.vrba.pyro.discord.commands;
 
+import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.entities.User;
@@ -10,6 +11,8 @@ import java.util.List;
 
 public interface CommandContext {
     @NotNull TextChannel getChannel();
+    @NotNull Message getMessage();
+    @NotNull User getAuthor();
     @NotNull GuildMessageReceivedEvent getEvent();
 
     @NotNull List<User> getMentionedUsers();

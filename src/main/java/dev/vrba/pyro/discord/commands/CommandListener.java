@@ -1,5 +1,6 @@
 package dev.vrba.pyro.discord.commands;
 
+import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.entities.User;
@@ -45,6 +46,16 @@ public class CommandListener extends ListenerAdapter {
             @Override
             public @NotNull TextChannel getChannel() {
                 return event.getChannel();
+            }
+
+            @Override
+            public @NotNull Message getMessage() {
+                return event.getMessage();
+            }
+
+            @Override
+            public @NotNull User getAuthor() {
+                return event.getAuthor();
             }
 
             @Override
