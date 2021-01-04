@@ -12,11 +12,19 @@
     <artifactId>pyro</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>pyro</name>
-    <description>Managaement Discord bot for FIS VŠE Discord server</description>
+    <description>Management Discord bot for FIS VŠE Discord server</description>
 
     <properties>
         <java.version>11</java.version>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>jcenter</id>
+            <name>jcenter-bintray</name>
+            <url>https://jcenter.bintray.com</url>
+        </repository>
+    </repositories>
 
     <dependencies>
         <dependency>
@@ -66,6 +74,11 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.dv8tion</groupId>
+            <artifactId>JDA</artifactId>
+            <version>4.2.0_225</version>
         </dependency>
     </dependencies>
 
