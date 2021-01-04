@@ -30,8 +30,9 @@ public class PyroApplication implements CommandLineRunner {
         try { this.bot.start(); }
         catch (LoginException exception) {
             logger.severe(
-            "Cannot start the application!\n" +
-                "The provided DISCORD_TOKEN is invalid and cannot be used to login within the gateway."
+                "Cannot start the application!\n" +
+                "The provided DISCORD_TOKEN is invalid and cannot be used to login within the gateway.\n" +
+                "To obtain a valid token, go to https://discord.com/developers/applications."
             );
         }
     }
