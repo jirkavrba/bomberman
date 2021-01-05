@@ -13,5 +13,14 @@ public interface Command {
         return "No help provided";
     }
 
+    default @NotNull Command.ExecutionSecurityPolicy getExecutionPolicy() {
+        return ExecutionSecurityPolicy.AdminsOnly;
+    }
+
     void execute(@NotNull CommandContext context);
+
+    enum ExecutionSecurityPolicy {
+        AdminsOnly,
+        DeterminedByACL
+    }
 }

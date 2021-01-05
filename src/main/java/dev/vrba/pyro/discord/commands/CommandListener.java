@@ -1,9 +1,8 @@
 package dev.vrba.pyro.discord.commands;
 
-import net.dv8tion.jda.api.entities.Message;
-import net.dv8tion.jda.api.entities.Role;
-import net.dv8tion.jda.api.entities.TextChannel;
-import net.dv8tion.jda.api.entities.User;
+import dev.vrba.pyro.discord.commands.acl.ACLResolver;
+import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
@@ -29,16 +28,53 @@ public class CommandListener extends ListenerAdapter {
         String content = event.getMessage().getContentDisplay();
 
         if (content.startsWith(COMMAND_PREFIX)) {
-            // Parses `some-command` out of `p:some-command some arguments @everyone or idk`
+            // Parses `some-command` out of `p:some-command some arguments ping @everyone or something idk`
             String name = content.split(" ")[0].replace(COMMAND_PREFIX, "");
             Optional<Command> match = commands
                     .stream()
                     .filter(item -> item.getName().equals(name))
                     .findFirst();
 
-            match.ifPresent(command -> command.execute(createCommandContext(event)));
+            match.ifPresent(command -> executeCommand(command, createCommandContext(event)));
+        }
+    }
+
+    private void executeCommand(@NotNull Command command, @NotNull CommandContext context) {
+        Member member = context.getEvent().getMember();
+
+        if (member == null) {
+            return;
         }
 
+        if (!isMemberEligibleToExecute(member, command)) {
+            String reason = command.getExecutionPolicy() == Command.ExecutionSecurityPolicy.AdminsOnly
+                    ? "This command can be only used by administrators."
+                    : "Access was denied by this command's ACL.";
+
+            CommandUtils.sendError(
+                    context,
+                    "Permissions error.",
+                    "You are not eligible to run this command.\n" + reason + "\n" +
+                         "If you think this is an error, please open an issue on Github:\n" +
+                         "https://github.com/jirkavrba/pyro/issues/new"
+            );
+            return;
+        }
+
+        command.execute(context);
+    }
+
+    private boolean isMemberEligibleToExecute(@NotNull Member member, @NotNull Command command) {
+        // If user is an admin (has MANAGER_SERVER permission) automatically grant execution permission
+        if (member.isOwner() || member.hasPermission(Permission.MANAGE_SERVER)) {
+            return true;
+        }
+
+        if (command.getExecutionPolicy() == Command.ExecutionSecurityPolicy.DeterminedByACL) {
+            return new ACLResolver().isAuthorized(member, command);
+        }
+
+        return false;
     }
 
     private CommandContext createCommandContext(@NotNull GuildMessageReceivedEvent event) {
