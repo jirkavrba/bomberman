@@ -20,13 +20,30 @@ public class CommandUtils {
             @NotNull final String title,
             @Nullable final String text
     ) {
+        sendEmbed(context, title, text, new Color(0xFA164E));
+    }
+
+    public static void sendSuccess(
+        @NotNull final CommandContext context,
+        @NotNull final String title,
+        @Nullable final String text
+    ) {
+        sendEmbed(context, title, text, new Color(0x70F139));
+    }
+
+    private static void sendEmbed(
+        @NotNull final CommandContext context,
+        @NotNull final String title,
+        @Nullable final String text,
+        @NotNull final Color color
+    ) {
         final User author = context.getAuthor();
 
         EmbedBuilder builder = new EmbedBuilder()
-            .setAuthor(author.getName(), null, author.getAvatarUrl())
-            .setTimestamp(context.getMessage().getTimeCreated())
-            .setColor(new Color(0xff4444))
-            .setTitle(title);
+                .setAuthor(author.getName(), null, author.getAvatarUrl())
+                .setTimestamp(context.getMessage().getTimeCreated())
+                .setColor(color)
+                .setTitle(title);
 
         if (text != null) {
             builder.setDescription(text);

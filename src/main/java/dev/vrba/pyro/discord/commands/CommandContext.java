@@ -15,6 +15,8 @@ public interface CommandContext {
     @NotNull User getAuthor();
     @NotNull GuildMessageReceivedEvent getEvent();
 
+    @NotNull List<String> getArguments();
+
     @NotNull List<User> getMentionedUsers();
     @NotNull List<Role> getMentionedRoles();
     @NotNull List<TextChannel> getMentionedTextChannels();

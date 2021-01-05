@@ -7,11 +7,13 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class CommandListener extends ListenerAdapter {
-    private static final String COMMAND_PREFIX = "p:";
+    public static final String COMMAND_PREFIX = "p:";
 
     private final List<Command> commands;
 
@@ -97,6 +99,15 @@ public class CommandListener extends ListenerAdapter {
             @Override
             public @NotNull GuildMessageReceivedEvent getEvent() {
                 return event;
+            }
+
+            @Override
+            public @NotNull List<String> getArguments() {
+                 String[] parts = event.getMessage().getContentDisplay().split(" ");
+
+                 return Arrays.stream(parts)
+                         .skip(1) // The actual command invocation
+                         .collect(Collectors.toList());
             }
 
             @Override

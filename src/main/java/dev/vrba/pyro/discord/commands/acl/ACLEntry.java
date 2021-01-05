@@ -1,5 +1,6 @@
 package dev.vrba.pyro.discord.commands.acl;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
 import org.jetbrains.annotations.NotNull;
@@ -12,6 +13,7 @@ import javax.persistence.Id;
 @Data
 @Entity
 @ToString(includeFieldNames = true)
+@AllArgsConstructor
 public class ACLEntry {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,14 +32,14 @@ public class ACLEntry {
     @NotNull
     public String command;
 
-    enum TargetType {
-        EVERYONE,
-        USER,
-        ROLE,
+    public enum TargetType {
+        Everyone,
+        User,
+        Role,
     }
 
-    enum EntryType {
-        ALLOW,
-        DENY
+    public enum EntryType {
+        Allow,
+        Deny
     }
 }

@@ -17,14 +17,14 @@ public class ACLResolver {
         long guildId = member.getGuild().getIdLong();
         String name = command.getName();
 
-        List<ACLEntry> denials = repository.findAllByGuildIdAndCommandAndType(guildId, name, ACLEntry.EntryType.DENY);
+        List<ACLEntry> denials = repository.findAllByGuildIdAndCommandAndType(guildId, name, ACLEntry.EntryType.Deny);
 
         // DENY has a priority over ALLOW in ACL context so it is resolved first
         if (denials.stream().anyMatch(entry -> entryMatches(entry, member))) {
             return false;
         }
 
-        List<ACLEntry> allows = repository.findAllByGuildIdAndCommandAndType(guildId, name, ACLEntry.EntryType.ALLOW);
+        List<ACLEntry> allows = repository.findAllByGuildIdAndCommandAndType(guildId, name, ACLEntry.EntryType.Allow);
 
         return allows
                 .stream()
@@ -33,13 +33,13 @@ public class ACLResolver {
 
     private boolean entryMatches(@NotNull ACLEntry entry, @NotNull Member member) {
         switch (entry.targetType) {
-            case EVERYONE:
+            case Everyone:
                 return true;
 
-            case USER:
+            case User:
                 return member.getIdLong() == entry.targetId;
 
-            case ROLE:
+            case Role:
                 return member.getRoles()
                         .stream()
                         .anyMatch(role -> role.getIdLong() == entry.targetId);
