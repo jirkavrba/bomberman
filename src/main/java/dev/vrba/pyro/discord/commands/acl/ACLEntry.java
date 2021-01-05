@@ -22,6 +22,9 @@ public class ACLEntry {
     public long targetId;
 
     @NotNull
+    public EntryType type;
+
+    @NotNull
     public TargetType targetType;
 
     @NotNull
@@ -31,5 +34,10 @@ public class ACLEntry {
         EVERYONE,
         USER,
         ROLE,
+    }
+
+    enum EntryType {
+        ALLOW,
+        DENY
     }
 }
