@@ -11,6 +11,11 @@ public class PingCommand implements Command {
     }
 
     @Override
+    public @NotNull ExecutionSecurityPolicy getExecutionPolicy() {
+        return ExecutionSecurityPolicy.DeterminedByACL;
+    }
+
+    @Override
     public @NotNull String getDescription() {
         return "A basic command to quickly find out, if the bot is up and running";
     }
