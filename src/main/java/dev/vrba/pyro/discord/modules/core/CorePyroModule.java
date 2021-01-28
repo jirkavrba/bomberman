@@ -5,6 +5,7 @@ import dev.vrba.pyro.discord.modules.core.commands.PingCommand;
 import dev.vrba.pyro.discord.modules.core.commands.acl.AllowCommand;
 import dev.vrba.pyro.discord.modules.core.commands.acl.DenyCommand;
 import dev.vrba.pyro.discord.modules.core.commands.acl.ListCommand;
+import dev.vrba.pyro.discord.modules.core.commands.acl.ResetCommand;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Activity;
 import org.jetbrains.annotations.NotNull;
@@ -20,27 +21,32 @@ public class CorePyroModule extends PyroModule {
 
     private final ListCommand listCommand;
 
+    private final ResetCommand resetCommand;
+
     @Autowired
     public CorePyroModule(
             @NotNull final AllowCommand allowCommand,
             @NotNull final DenyCommand denyCommand,
-            @NotNull final ListCommand listCommand
+            @NotNull final ListCommand listCommand,
+            @NotNull final ResetCommand resetCommand
     ) {
         this.allowCommand = allowCommand;
         this.denyCommand = denyCommand;
         this.listCommand = listCommand;
+        this.resetCommand = resetCommand;
     }
 
     @Override
     public void register(@NotNull JDA api) {
         api.getPresence()
-           .setActivity(Activity.watching("out for bombs on VŠE"));
+                .setActivity(Activity.watching("out for bombs on VŠE"));
 
         registerCommands(api,
-            new PingCommand(),
-            allowCommand,
-            denyCommand,
-            listCommand
+                new PingCommand(),
+                allowCommand,
+                denyCommand,
+                listCommand,
+                resetCommand
         );
     }
 }
