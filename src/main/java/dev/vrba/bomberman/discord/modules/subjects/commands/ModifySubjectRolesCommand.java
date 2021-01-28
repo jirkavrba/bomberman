@@ -11,8 +11,6 @@ import java.util.List;
 @Component
 public class ModifySubjectRolesCommand implements Command {
 
-
-
     @Override
     public @NotNull String getName() {
         return "subject";
@@ -26,7 +24,7 @@ public class ModifySubjectRolesCommand implements Command {
     @Override
     public @NotNull String getHelp() {
         return "Use `" + CommandListener.COMMAND_PREFIX + getName() + " +<subject_code> or -<subject_code>` to gain roles.\n" +
-                "For example: `" + CommandListener.COMMAND_PREFIX + getName() + " +4mm106 +4iz110 -4it101";
+                "For example: `" + CommandListener.COMMAND_PREFIX + getName() + " +4mm106 +4iz110 -4it101`";
     }
 
     @Override
