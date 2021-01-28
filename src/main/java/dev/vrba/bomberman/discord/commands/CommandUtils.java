@@ -24,6 +24,13 @@ public class CommandUtils {
     }
 
     public static void sendSuccess(
+            @NotNull final CommandContext context,
+            @NotNull final String title
+    ) {
+        sendSuccess(context, title, null);
+    }
+
+    public static void sendSuccess(
         @NotNull final CommandContext context,
         @NotNull final String title,
         @Nullable final String text
