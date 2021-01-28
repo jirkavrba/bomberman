@@ -3,7 +3,6 @@ package dev.vrba.pyro.discord.modules;
 import dev.vrba.pyro.discord.commands.Command;
 import dev.vrba.pyro.discord.commands.CommandListener;
 import net.dv8tion.jda.api.JDA;
-import org.apache.logging.log4j.util.Strings;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
 
