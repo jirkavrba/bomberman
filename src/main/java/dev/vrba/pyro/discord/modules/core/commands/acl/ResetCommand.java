@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@AutowiredCommand
+@Component
 public class ResetCommand implements Command {
 
     private final ACLEntriesRepository repository;
@@ -46,7 +46,7 @@ public class ResetCommand implements Command {
                     context,
                     "Missing command name.",
                     "Please, pass the command name (something like `ping`) as the first argument.\n" +
-                            "For example: `p:acl:reste ping`"
+                            "For example: `p:acl:reset ping`"
             );
             return;
         }

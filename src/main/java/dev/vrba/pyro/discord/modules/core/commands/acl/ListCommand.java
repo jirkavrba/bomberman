@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.stream.Stream;
 
-@AutowiredCommand
+@Component
 public class ListCommand implements Command {
 
     private final ACLEntriesRepository repository;

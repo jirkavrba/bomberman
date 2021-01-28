@@ -51,7 +51,8 @@ public class CorePyroModule extends PyroModule {
                 allowCommand,
                 denyCommand,
                 listCommand,
-                resetCommand
+                resetCommand,
+                helpCommand
         );
     }
 }
