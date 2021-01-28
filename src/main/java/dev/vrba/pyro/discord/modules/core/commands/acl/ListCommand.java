@@ -1,9 +1,6 @@
 package dev.vrba.pyro.discord.modules.core.commands.acl;
 
-import dev.vrba.pyro.discord.commands.Command;
-import dev.vrba.pyro.discord.commands.CommandContext;
-import dev.vrba.pyro.discord.commands.CommandListener;
-import dev.vrba.pyro.discord.commands.CommandUtils;
+import dev.vrba.pyro.discord.commands.*;
 import dev.vrba.pyro.discord.commands.acl.ACLEntriesRepository;
 import dev.vrba.pyro.discord.commands.acl.ACLEntry;
 import org.jetbrains.annotations.NotNull;
@@ -13,7 +10,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.stream.Stream;
 
-@Component
+@AutowiredCommand
 public class ListCommand implements Command {
 
     private final ACLEntriesRepository repository;

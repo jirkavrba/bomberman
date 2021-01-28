@@ -1,6 +1,7 @@
 package dev.vrba.pyro.discord.modules.core;
 
 import dev.vrba.pyro.discord.modules.PyroModule;
+import dev.vrba.pyro.discord.modules.core.commands.HelpCommand;
 import dev.vrba.pyro.discord.modules.core.commands.PingCommand;
 import dev.vrba.pyro.discord.modules.core.commands.acl.AllowCommand;
 import dev.vrba.pyro.discord.modules.core.commands.acl.DenyCommand;
@@ -23,17 +24,21 @@ public class CorePyroModule extends PyroModule {
 
     private final ResetCommand resetCommand;
 
+    private final HelpCommand helpCommand;
+
     @Autowired
     public CorePyroModule(
             @NotNull final AllowCommand allowCommand,
             @NotNull final DenyCommand denyCommand,
             @NotNull final ListCommand listCommand,
-            @NotNull final ResetCommand resetCommand
+            @NotNull final ResetCommand resetCommand,
+            @NotNull final HelpCommand helpCommand
     ) {
         this.allowCommand = allowCommand;
         this.denyCommand = denyCommand;
         this.listCommand = listCommand;
         this.resetCommand = resetCommand;
+        this.helpCommand = helpCommand;
     }
 
     @Override
