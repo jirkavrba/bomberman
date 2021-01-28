@@ -32,6 +32,13 @@ public class ACLEntry {
     @NotNull
     public String command;
 
+    /**
+     * Default constructor required by Hibernate library
+     */
+    public ACLEntry() {
+        this(0, 0, 0, EntryType.Allow, TargetType.Everyone, "");
+    }
+
     public enum TargetType {
         Everyone,
         User,
