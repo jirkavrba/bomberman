@@ -5,19 +5,18 @@ import dev.vrba.pyro.discord.commands.acl.ACLEntriesRepository;
 import dev.vrba.pyro.discord.commands.acl.ACLEntry;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class DenyCommand implements Command {
-
-    private final ACLEntriesRepository repository;
+public class DenyCommand extends ACLCommand implements Command {
 
     @Autowired
-    public DenyCommand(@NotNull final ACLEntriesRepository repository) {
-        this.repository = repository;
+    public DenyCommand(@NotNull final ACLEntriesRepository repository, @NotNull final ApplicationContext context) {
+        super(repository, context);
     }
 
     @Override
@@ -55,6 +54,15 @@ public class DenyCommand implements Command {
 
         long guildId = context.getEvent().getGuild().getIdLong();
         String name = context.getArguments().get(0);
+
+        if (!isTargetCommandValid(name)) {
+            CommandUtils.sendError(
+                    context,
+                    "Unknown or invalid command `" + name + "`",
+                    "Make sure the target command exists and that its execution is ACL-dependent."
+            );
+            return;
+        }
 
         if (context.getMentionedUsers().isEmpty() && context.getMentionedRoles().isEmpty()) {
             ACLEntry entry = new ACLEntry(

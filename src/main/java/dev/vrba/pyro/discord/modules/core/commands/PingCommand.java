@@ -3,7 +3,9 @@ package dev.vrba.pyro.discord.modules.core.commands;
 import dev.vrba.pyro.discord.commands.Command;
 import dev.vrba.pyro.discord.commands.CommandContext;
 import org.jetbrains.annotations.NotNull;
+import org.springframework.stereotype.Component;
 
+@Component
 public class PingCommand implements Command {
     @Override
     public @NotNull String getName() {
