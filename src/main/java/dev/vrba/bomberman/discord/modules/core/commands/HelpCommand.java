@@ -3,6 +3,7 @@ package dev.vrba.bomberman.discord.modules.core.commands;
 import dev.vrba.bomberman.discord.commands.Command;
 import dev.vrba.bomberman.discord.commands.CommandContext;
 import dev.vrba.bomberman.discord.commands.CommandListener;
+import dev.vrba.bomberman.discord.commands.ExcludeFromHelpListing;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import org.jetbrains.annotations.NotNull;
@@ -11,14 +12,20 @@ import org.springframework.stereotype.Component;
 
 import java.awt.*;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 @Component
+@ExcludeFromHelpListing
 public class HelpCommand implements Command {
 
     private final Collection<Command> commands;
 
     public HelpCommand(@NotNull final ApplicationContext context) {
-        this.commands = context.getBeansOfType(Command.class).values();
+        this.commands = context.getBeansOfType(Command.class)
+                .values()
+                .stream()
+                .filter(command -> !command.getClass().isAnnotationPresent(ExcludeFromHelpListing.class))
+                .collect(Collectors.toList());
     }
 
     @Override

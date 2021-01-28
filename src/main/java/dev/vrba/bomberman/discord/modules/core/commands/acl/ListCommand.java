@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 @Component
+@ExcludeFromHelpListing
 public class ListCommand extends ACLCommand implements Command {
 
     @Autowired

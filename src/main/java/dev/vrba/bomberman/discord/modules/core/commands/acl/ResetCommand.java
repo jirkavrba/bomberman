@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
+@ExcludeFromHelpListing
 public class ResetCommand extends ACLCommand implements Command {
 
     @Autowired
