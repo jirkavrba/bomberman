@@ -22,7 +22,6 @@ public class DiscordBotService {
 
     private final List<BombermanModule> modules;
 
-
     @Autowired
     public DiscordBotService(@Value("${DISCORD_TOKEN:default}") final String token, final List<BombermanModule> modules) {
         this.token = token;
@@ -38,7 +37,6 @@ public class DiscordBotService {
     }
 
     private class ModuleLoader extends ListenerAdapter {
-
         @Override
         public void onReady(@NotNull ReadyEvent event) {
             logger.info("Logged into Discord Gateway.");

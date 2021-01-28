@@ -2,6 +2,7 @@ package dev.vrba.bomberman.discord.modules.subjects.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.*;
@@ -9,25 +10,28 @@ import java.util.List;
 
 @Data
 @Entity
+@NoArgsConstructor
 @AllArgsConstructor
+@Table(
+        // Make each combination of guildId and code unique
+        uniqueConstraints = @UniqueConstraint(columnNames = {"code", "guildId"})
+)
 public class Subject {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public final long id = 0;
 
-    public final long guildId = 0;
+    public long guildId;
 
     // The subject's code (eg. 4IZ110)
     @NotNull
-    public final String code = "";
+    public String code;
 
     // The subject's full name (eg. Informační a komunikační technologie)
     @NotNull
-    public final String name = "";
+    public String name;
 
-    public final long associatedRoleId = 0;
-
-    public final long assignedChannelCategoryId = 0;
+    public long associatedRoleId;
 
     @NotNull
     @OneToMany

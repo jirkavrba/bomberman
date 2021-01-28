@@ -54,7 +54,7 @@ public class ModifySubjectRolesCommand implements Command {
 
         final long successfulAssignments = context.getArguments()
                 .stream()
-                .filter(argument -> argument.matches("^[-+][a-z0-9]{6}$"))
+                .filter(argument -> argument.matches("^[-+][a-zA-Z0-9]{6}$"))
                 .map(argument -> new ModificationRequest(
                         argument.charAt(0),
                         repository.findByGuildIdAndCode(guild.getIdLong(), argument.substring(1))
