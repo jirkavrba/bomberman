@@ -20,7 +20,7 @@ public class CommandUtils {
             @NotNull final String title,
             @Nullable final String text
     ) {
-        sendEmbed(context, title, text, new Color(0xFA164E));
+        sendEmbed(context, "☹ " + title, text, new Color(0xFA164E));
     }
 
     public static void sendSuccess(
@@ -28,7 +28,7 @@ public class CommandUtils {
         @NotNull final String title,
         @Nullable final String text
     ) {
-        sendEmbed(context, title, text, new Color(0x70F139));
+        sendEmbed(context, "👌 " + title, text, new Color(0x70F139));
     }
 
     private static void sendEmbed(
@@ -40,7 +40,7 @@ public class CommandUtils {
         final User author = context.getAuthor();
 
         EmbedBuilder builder = new EmbedBuilder()
-                .setAuthor(author.getName(), null, author.getAvatarUrl())
+                .setFooter(author.getName(), author.getAvatarUrl())
                 .setTimestamp(context.getMessage().getTimeCreated())
                 .setColor(color)
                 .setTitle(title);
