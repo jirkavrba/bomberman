@@ -1,4 +1,4 @@
-package dev.vrba.pyro.discord.commands.acl;
+package dev.vrba.bomberman.discord.commands.acl;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

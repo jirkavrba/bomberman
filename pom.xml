@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>dev.vrba</groupId>
-    <artifactId>pyro</artifactId>
+    <artifactId>bomberman</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>pyro</name>
+    <name>Bomberman bot</name>
     <description>Management Discord bot for FIS VŠE Discord server</description>
 
     <properties>

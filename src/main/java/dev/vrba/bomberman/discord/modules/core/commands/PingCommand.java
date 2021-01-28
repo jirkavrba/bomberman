@@ -1,7 +1,7 @@
-package dev.vrba.pyro.discord.modules.core.commands;
+package dev.vrba.bomberman.discord.modules.core.commands;
 
-import dev.vrba.pyro.discord.commands.Command;
-import dev.vrba.pyro.discord.commands.CommandContext;
+import dev.vrba.bomberman.discord.commands.Command;
+import dev.vrba.bomberman.discord.commands.CommandContext;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
 

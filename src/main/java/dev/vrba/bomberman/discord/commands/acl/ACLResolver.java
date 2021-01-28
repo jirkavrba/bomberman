@@ -1,6 +1,6 @@
-package dev.vrba.pyro.discord.commands.acl;
+package dev.vrba.bomberman.discord.commands.acl;
 
-import dev.vrba.pyro.discord.commands.Command;
+import dev.vrba.bomberman.discord.commands.Command;
 import net.dv8tion.jda.api.entities.Member;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;

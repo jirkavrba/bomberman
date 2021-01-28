@@ -1,7 +1,7 @@
-package dev.vrba.pyro.discord.modules.core.commands.acl;
+package dev.vrba.bomberman.discord.modules.core.commands.acl;
 
-import dev.vrba.pyro.discord.commands.Command;
-import dev.vrba.pyro.discord.commands.acl.ACLEntriesRepository;
+import dev.vrba.bomberman.discord.commands.Command;
+import dev.vrba.bomberman.discord.commands.acl.ACLEntriesRepository;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.springframework.context.ApplicationContext;

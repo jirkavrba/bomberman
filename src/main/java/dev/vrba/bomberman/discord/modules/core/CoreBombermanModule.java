@@ -1,12 +1,12 @@
-package dev.vrba.pyro.discord.modules.core;
+package dev.vrba.bomberman.discord.modules.core;
 
-import dev.vrba.pyro.discord.modules.PyroModule;
-import dev.vrba.pyro.discord.modules.core.commands.HelpCommand;
-import dev.vrba.pyro.discord.modules.core.commands.PingCommand;
-import dev.vrba.pyro.discord.modules.core.commands.acl.AllowCommand;
-import dev.vrba.pyro.discord.modules.core.commands.acl.DenyCommand;
-import dev.vrba.pyro.discord.modules.core.commands.acl.ListCommand;
-import dev.vrba.pyro.discord.modules.core.commands.acl.ResetCommand;
+import dev.vrba.bomberman.discord.modules.BombermanModule;
+import dev.vrba.bomberman.discord.modules.core.commands.HelpCommand;
+import dev.vrba.bomberman.discord.modules.core.commands.PingCommand;
+import dev.vrba.bomberman.discord.modules.core.commands.acl.AllowCommand;
+import dev.vrba.bomberman.discord.modules.core.commands.acl.DenyCommand;
+import dev.vrba.bomberman.discord.modules.core.commands.acl.ListCommand;
+import dev.vrba.bomberman.discord.modules.core.commands.acl.ResetCommand;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Activity;
 import org.jetbrains.annotations.NotNull;
@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CorePyroModule extends PyroModule {
+public class CoreBombermanModule extends BombermanModule {
 
     private final AllowCommand allowCommand;
 
@@ -27,7 +27,7 @@ public class CorePyroModule extends PyroModule {
     private final HelpCommand helpCommand;
 
     @Autowired
-    public CorePyroModule(
+    public CoreBombermanModule(
             @NotNull final AllowCommand allowCommand,
             @NotNull final DenyCommand denyCommand,
             @NotNull final ListCommand listCommand,

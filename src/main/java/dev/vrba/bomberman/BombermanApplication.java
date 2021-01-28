@@ -1,30 +1,28 @@
-package dev.vrba.pyro;
+package dev.vrba.bomberman;
 
-import dev.vrba.pyro.discord.DiscordBotService;
+import dev.vrba.bomberman.discord.DiscordBotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
 
 import javax.security.auth.login.LoginException;
 import java.util.logging.Logger;
 
 @SpringBootApplication
-public class PyroApplication implements CommandLineRunner {
+public class BombermanApplication implements CommandLineRunner {
 
     private final DiscordBotService bot;
 
     private final Logger logger = Logger.getAnonymousLogger();
 
     @Autowired
-    public PyroApplication(final DiscordBotService bot) {
+    public BombermanApplication(final DiscordBotService bot) {
         this.bot = bot;
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(PyroApplication.class, args);
+        SpringApplication.run(BombermanApplication.class, args);
     }
 
     @Override

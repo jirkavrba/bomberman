@@ -1,4 +1,4 @@
-package dev.vrba.pyro.discord.commands;
+package dev.vrba.bomberman.discord.commands;
 
 import org.jetbrains.annotations.NotNull;
 

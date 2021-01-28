@@ -1,8 +1,8 @@
-package dev.vrba.pyro.discord.modules.core.commands;
+package dev.vrba.bomberman.discord.modules.core.commands;
 
-import dev.vrba.pyro.discord.commands.Command;
-import dev.vrba.pyro.discord.commands.CommandContext;
-import dev.vrba.pyro.discord.commands.CommandListener;
+import dev.vrba.bomberman.discord.commands.Command;
+import dev.vrba.bomberman.discord.commands.CommandContext;
+import dev.vrba.bomberman.discord.commands.CommandListener;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import org.jetbrains.annotations.NotNull;

@@ -1,4 +1,4 @@
-package dev.vrba.pyro.discord.commands;
+package dev.vrba.bomberman.discord.commands;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.User;

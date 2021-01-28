@@ -1,16 +1,13 @@
-package dev.vrba.pyro.discord;
+package dev.vrba.bomberman.discord;
 
-import com.fasterxml.jackson.databind.Module;
-import dev.vrba.pyro.discord.modules.PyroModule;
+import dev.vrba.bomberman.discord.modules.BombermanModule;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
-import org.springframework.util.concurrent.ListenableFuture;
 
 import javax.security.auth.login.LoginException;
 import java.util.List;
@@ -23,17 +20,17 @@ public class DiscordBotService {
 
     private final Logger logger = Logger.getAnonymousLogger();
 
-    private final List<PyroModule> modules;
+    private final List<BombermanModule> modules;
 
 
     @Autowired
-    public DiscordBotService(@Value("${DISCORD_TOKEN:default}") final String token, final List<PyroModule> modules) {
+    public DiscordBotService(@Value("${DISCORD_TOKEN:default}") final String token, final List<BombermanModule> modules) {
         this.token = token;
         this.modules = modules;
     }
 
     public void start() throws LoginException {
-        logger.info("Starting the Pyro Discord bot service.");
+        logger.info("Starting the Bomberman Discord bot service.");
 
         JDABuilder.createDefault(token)
                 .addEventListeners(new ModuleLoader())
@@ -45,7 +42,7 @@ public class DiscordBotService {
         @Override
         public void onReady(@NotNull ReadyEvent event) {
             logger.info("Logged into Discord Gateway.");
-            logger.info("Loading Pyro modules.");
+            logger.info("Loading Bomberman modules.");
 
             modules.forEach(module -> {
                 logger.info("Registering the module [" + module.getClass().getName() + "]");

@@ -1,7 +1,7 @@
-package dev.vrba.pyro.discord.modules;
+package dev.vrba.bomberman.discord.modules;
 
-import dev.vrba.pyro.discord.commands.Command;
-import dev.vrba.pyro.discord.commands.CommandListener;
+import dev.vrba.bomberman.discord.commands.Command;
+import dev.vrba.bomberman.discord.commands.CommandListener;
 import net.dv8tion.jda.api.JDA;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 @Component
-public abstract class PyroModule {
+public abstract class BombermanModule {
 
     protected Logger logger = Logger.getAnonymousLogger();
 

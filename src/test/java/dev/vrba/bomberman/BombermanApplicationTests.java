@@ -1,10 +1,10 @@
-package dev.vrba.pyro;
+package dev.vrba.bomberman;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PyroApplicationTests {
+class BombermanApplicationTests {
 
     @Test
     void contextLoads() {

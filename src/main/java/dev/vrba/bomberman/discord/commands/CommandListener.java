@@ -1,6 +1,6 @@
-package dev.vrba.pyro.discord.commands;
+package dev.vrba.bomberman.discord.commands;
 
-import dev.vrba.pyro.discord.commands.acl.ACLResolver;
+import dev.vrba.bomberman.discord.commands.acl.ACLResolver;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
@@ -56,9 +56,9 @@ public class CommandListener extends ListenerAdapter {
             CommandUtils.sendError(
                     context,
                     "Permissions error.",
-                    "You are not eligible to run this command.\n" + reason + "\n" +
+                    "You are not eligible to run this command.\n" + reason + "\n\n" +
                          "If you think this is an error, please open an issue on Github:\n" +
-                         "https://github.com/jirkavrba/pyro/issues/new"
+                         "https://github.com/jirkavrba/bomberman/issues/new"
             );
             return;
         }
