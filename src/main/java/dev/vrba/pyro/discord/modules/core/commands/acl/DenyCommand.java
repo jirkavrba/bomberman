@@ -117,7 +117,7 @@ public class DenyCommand implements Command {
                 0,
                 guildId,
                 roleId,
-                ACLEntry.EntryType.Allow,
+                ACLEntry.EntryType.Deny,
                 ACLEntry.TargetType.Role,
                 command
         );
