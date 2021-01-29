@@ -19,7 +19,7 @@ import java.util.List;
 public class Subject {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public final long id = 0;
+    public long id;
 
     public long guildId;
 

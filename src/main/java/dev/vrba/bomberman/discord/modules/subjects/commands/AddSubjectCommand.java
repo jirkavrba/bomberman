@@ -74,6 +74,7 @@ public class AddSubjectCommand implements Command {
 
         try {
             final Subject subject = repository.save(new Subject(
+                    0,
                     guild.getIdLong(),
                     arguments.get(1),
                     arguments.stream().skip(2).collect(Collectors.joining(" ")),
