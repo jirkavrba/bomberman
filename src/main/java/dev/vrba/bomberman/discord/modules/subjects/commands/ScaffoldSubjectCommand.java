@@ -9,7 +9,6 @@ import dev.vrba.bomberman.discord.modules.subjects.repositories.SubjectRepositor
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Category;
 import net.dv8tion.jda.api.entities.Role;
-import net.dv8tion.jda.api.entities.TextChannel;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
 
