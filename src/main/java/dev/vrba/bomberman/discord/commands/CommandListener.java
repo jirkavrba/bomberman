@@ -82,6 +82,11 @@ public class CommandListener extends ListenerAdapter {
     private CommandContext createCommandContext(@NotNull GuildMessageReceivedEvent event) {
         return new CommandContext() {
             @Override
+            public @NotNull Guild getGuild() {
+                return event.getGuild();
+            }
+
+            @Override
             public @NotNull TextChannel getChannel() {
                 return event.getChannel();
             }
