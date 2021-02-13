@@ -1,17 +1,21 @@
 package dev.vrba.bomberman.discord.commands.acl;
 
+import dev.vrba.bomberman.BombermanApplication;
 import dev.vrba.bomberman.discord.commands.Command;
 import net.dv8tion.jda.api.entities.Member;
 import org.jetbrains.annotations.NotNull;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.List;
 
-@Component
 public class ACLResolver {
-    @Autowired
-    private ACLEntriesRepository repository;
+
+    private final ACLEntriesRepository repository;
+
+    public ACLResolver() {
+        var context = new AnnotationConfigApplicationContext(BombermanApplication.class);
+        this.repository = context.getBean(ACLEntriesRepository.class);
+    }
 
     public boolean isAuthorized(@NotNull Member member, @NotNull Command command) {
         long guildId = member.getGuild().getIdLong();
