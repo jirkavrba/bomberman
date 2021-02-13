@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-@ExcludeFromHelpListing
 public class AddSubjectCommand implements Command {
 
     @NotNull

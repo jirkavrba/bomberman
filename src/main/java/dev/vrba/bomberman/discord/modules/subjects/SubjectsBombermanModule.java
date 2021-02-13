@@ -1,10 +1,7 @@
 package dev.vrba.bomberman.discord.modules.subjects;
 
 import dev.vrba.bomberman.discord.modules.BombermanModule;
-import dev.vrba.bomberman.discord.modules.subjects.commands.AddSubjectCommand;
-import dev.vrba.bomberman.discord.modules.subjects.commands.ModifySubjectRolesCommand;
-import dev.vrba.bomberman.discord.modules.subjects.commands.RemoveSubjectCommand;
-import dev.vrba.bomberman.discord.modules.subjects.commands.ScaffoldSubjectCommand;
+import dev.vrba.bomberman.discord.modules.subjects.commands.*;
 import net.dv8tion.jda.api.JDA;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,18 +14,21 @@ public class SubjectsBombermanModule extends BombermanModule {
     private final RemoveSubjectCommand removeSubjectCommand;
     private final ModifySubjectRolesCommand modifySubjectRolesCommand;
     private final ScaffoldSubjectCommand scaffoldSubjectCommand;
+    private final ListSubjectsCommand listSubjectsCommand;
 
     @Autowired
     public SubjectsBombermanModule(
            AddSubjectCommand addSubjectCommand,
            RemoveSubjectCommand removeSubjectCommand,
            ModifySubjectRolesCommand modifySubjectRolesCommand,
-           ScaffoldSubjectCommand scaffoldSubjectCommand
+           ScaffoldSubjectCommand scaffoldSubjectCommand,
+           ListSubjectsCommand listSubjectsCommand
     ) {
         this.addSubjectCommand = addSubjectCommand;
         this.removeSubjectCommand = removeSubjectCommand;
         this.modifySubjectRolesCommand = modifySubjectRolesCommand;
         this.scaffoldSubjectCommand = scaffoldSubjectCommand;
+        this.listSubjectsCommand = listSubjectsCommand;
     }
 
     @Override
@@ -38,7 +38,8 @@ public class SubjectsBombermanModule extends BombermanModule {
                 addSubjectCommand,
                 removeSubjectCommand,
                 modifySubjectRolesCommand,
-                scaffoldSubjectCommand
+                scaffoldSubjectCommand,
+                listSubjectsCommand
         );
     }
 }
