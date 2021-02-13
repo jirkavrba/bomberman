@@ -74,10 +74,7 @@ public class ModifySubjectRolesCommand implements Command {
             return;
         }
 
-        CommandUtils.sendSuccess(
-                context,
-                "Finished all " + successfulAssignments + " role modifications"
-        );
+        context.getMessage().addReaction("☑").queue();
     }
 
     @Data

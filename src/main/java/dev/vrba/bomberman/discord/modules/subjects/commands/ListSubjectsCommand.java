@@ -6,7 +6,6 @@ import dev.vrba.bomberman.discord.commands.CommandListener;
 import dev.vrba.bomberman.discord.commands.CommandUtils;
 import dev.vrba.bomberman.discord.modules.subjects.entities.Subject;
 import dev.vrba.bomberman.discord.modules.subjects.repositories.SubjectRepository;
-import net.dv8tion.jda.api.entities.User;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
 
@@ -44,7 +43,6 @@ public class ListSubjectsCommand implements Command {
 
     @Override
     public void execute(@NotNull CommandContext context) {
-        User author = context.getAuthor();
         List<Subject> subjects = repository.findAllByGuildId(context.getGuild().getIdLong());
 
         String body = subjects.stream()
